@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="pageTitle">euroToFranc</ui:define>
+<ui:define name="pageHeader">conversion de monnaies / euroToFranc</ui:define>
+<ui:define name="body">
+	<h:form id="frm">
+	   montant en euro:<h:inputText id="montantInput" value="#{convertisseurMbean.montant}"/><br/>
+	   <h:commandButton  id="convertButton" value="euro to franc" action="#{convertisseurMbean.convertir}"  /> <br/>
+	   somme en francs: <h:outputText id="somme_convertie" value="#{convertisseurMbean.sommeConvertie}"/>
+	</h:form>
+	<h:messages/> 
+</ui:define>
+</ui:composition>
+</html>

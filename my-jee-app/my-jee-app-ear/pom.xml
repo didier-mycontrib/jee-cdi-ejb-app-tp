@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>tp</groupId>
+    <artifactId>my-jee-app</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>my-jee-app-ear</artifactId>
+ <packaging>ear</packaging>
+   <dependencies>
+   
+    <dependency>
+      <groupId>tp</groupId>
+      <artifactId>my-jee-app-ejb-itf</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <type>jar</type>       
+    </dependency>
+  
+  <dependency>
+      <groupId>tp</groupId>
+      <artifactId>my-jee-app-ejb-impl</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <type>ejb</type>       
+    </dependency>
+    
+    <dependency>
+      <groupId>tp</groupId>
+      <artifactId>my-jee-app-web</artifactId>
+      <version>0.0.1-SNAPSHOT</version> 
+      <type>war</type>     
+    </dependency>
+    
+  </dependencies>
+
+  <build>
+    <plugins>
+          
+      <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<generateApplicationXml>true</generateApplicationXml>
+					<includeJar>false</includeJar>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<webModule>
+							<groupId>tp</groupId>
+							<artifactId>my-jee-app-web</artifactId>
+							<contextRoot>my-jee-app-web</contextRoot>
+							<bundleFileName>my-jee-app-web.war</bundleFileName>
+						</webModule>
+						<jarModule>
+							<groupId>tp</groupId>
+							<artifactId>my-jee-app-ejb-itf</artifactId>
+							<bundleFileName>my-jee-app-ejb-itf.jar</bundleFileName>
+						</jarModule>
+						<ejbModule>
+							<groupId>tp</groupId>
+							<artifactId>my-jee-app-ejb-impl</artifactId>
+							<bundleFileName>my-jee-app-ejb-impl.jar</bundleFileName>
+						</ejbModule>
+					</modules>	
+					<version>6</version>	<!-- 1.4 , 5 , 6 , 7-->			
+				</configuration>
+			</plugin>
+			
+		<plugin>  <!-- a lancer via mvn cargo:run -->
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <version>1.2.2</version>
+             
+         <configuration>
+            <wait>true</wait> 
+            <container>
+                 <containerId>jboss71x</containerId>     
+                  <type>installed</type> 
+                  <home>C:\Prog\java\ServApp\jboss-as-7.1.1.Final</home>
+                  
+            </container>
+            <!--
+            <configuration>                     
+                      <type>existing</type> 
+                      <home>C:\Prog\java\ServApp\jboss-as-7.1.1.Final\standalone</home>
+            </configuration> 
+            -->
+       </configuration>
+                 
+      </plugin>
+			
+      
+    </plugins>
+    <finalName>my-jee-app</finalName> <!-- .ear -->
+  </build>
+</project>

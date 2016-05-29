@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>tp</groupId>
+    <artifactId>my-jee-app</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>my-jee-app-ejb-itf</artifactId>
+   <description>interface des EJB avec DTO ou entity en I/O</description>
+
+ <dependencies>
+  
+  <!-- javax / javaee-api / 6.0 / provided : interfaces seulement (pour compiler) : ok pour test avec jboss 7 ou ... -->
+   <dependency> 
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>6.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <!--
+    <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+    -->
+</dependencies>
+<build>
+    <finalName>my-jee-app-ejb-itf</finalName>
+</build>
+</project>

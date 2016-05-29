@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>tp</groupId>
+  <artifactId>my-jee-app-ext-client</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+<dependencies>
+  
+  <dependency>
+    <groupId>tp</groupId>
+    <artifactId>my-jee-app-ejb-itf</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+   </dependency>
+  
+   <!--  7 , not 6 for jboss wildfly 9.2 -->
+ <dependency> 
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>7.0</version>     
+    </dependency>
+    
+    
+    <!-- Attention , dépendance locale construite via deploy-file -->
+   
+    <dependency>
+      <groupId>org.jboss.as</groupId> 
+      <artifactId>jboss-client</artifactId>
+      <version>9.0</version>
+    </dependency>
+ 
+  </dependencies>
+  
+  
+  <build>
+		<plugins>
+		   <!-- configuration (enventuellement heritee) pour compilation en java 7 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<!-- 
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>tp.client.app.test.jee.MyJeeClientApp</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				-->
+			</plugin>
+		</plugins>
+			
+	
+		<finalName>external-jee-client</finalName>
+	</build>
+   
+</project>

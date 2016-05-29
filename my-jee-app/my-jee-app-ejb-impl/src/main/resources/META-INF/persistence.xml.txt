@@ -1,0 +1,22 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="myPersistenceUnit">
+	
+	<!--  PROVIDER JPA : par defaut selon serveur JEE ou bien spécifié au démarrage d'un test -->
+	<!-- <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> pour JPA base sur EclipseLink  -->
+	<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> pour JPA base sur Hibernate -->
+	<!-- <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider> pour JPA base sur OpenJPA -->
+	
+	
+<!-- with JNDI lookup inside JBoss App Serv -->	
+	 <!-- <jta-data-source>jdbc/minibankDS</jta-data-source> --> <!-- version glassfish -->
+	  <jta-data-source>java:/....DS</jta-data-source>   <!-- version jboss7 ou wildfly 9 -->
+		<properties>
+	     <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" /> 
+		<!-- <property name="hibernate.hbm2ddl.auto" value="none" />  --> <!-- "create-drop" ,"update" , "none" (par defaut) -->
+		</properties>
+	</persistence-unit>
+</persistence>

@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>tp</groupId>
+    <artifactId>my-jee-app</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>my-jee-app-web</artifactId>
+  <packaging>war</packaging>
+  
+   <properties>
+    
+  </properties>
+  
+   
+  <dependencies>
+  
+   <dependency>
+    <groupId>tp</groupId>
+    <artifactId>my-jee-app-ejb-itf</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <scope>provided</scope>
+   </dependency>
+   
+  <dependency>
+      <groupId>tp</groupId>
+      <artifactId>my-jee-app-ejb-impl</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+
+
+<dependency> 
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>6.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- 
+		<dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>   
+            <version>1.0.0.GA</version>
+             <scope>compile</scope>                     
+        </dependency>
+		-->
+		<dependency>
+     		<groupId>org.hibernate</groupId>
+     		<artifactId>hibernate-validator</artifactId>
+     		<version>3.0.0.ga</version>  <!--  3.0.0.ga ou 4.0.2.GA  -->
+     		 <scope>provided</scope>  
+	   </dependency>
+	   
+	   
+	   </dependencies>
+	   
+	   <build>
+	      <finalName>my-jee-app-web</finalName>
+	   </build>
+  
+  
+</project>
