@@ -11,12 +11,8 @@
     <version>0.0.1-SNAPSHOT</version>
    </dependency>
   
-   <!--  7 , not 6 for jboss wildfly 9.2 -->
- <dependency> 
-      <groupId>javax</groupId>
-      <artifactId>javaee-api</artifactId>
-      <version>7.0</version>     
-    </dependency>
+   <!--  7 , not 6 for jboss wildfly 9.2 but 6.0 for jboss_as_7.1.1.Final -->
+
     
     
     <!-- Attention , dépendance locale construite via deploy-file -->
@@ -24,7 +20,14 @@
     <dependency>
       <groupId>org.jboss.as</groupId> 
       <artifactId>jboss-client</artifactId>
-      <version>9.0</version>
+      <version>7.1</version> <!-- 7.1 pour jboss_as_7.1.1.Final ou bien 9.0 pour jboss jboss wildfly 9.2 -->
+    </dependency>
+    
+    
+     <dependency> 
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>6.0</version>     
     </dependency>
  
   </dependencies>

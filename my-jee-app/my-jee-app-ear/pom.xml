@@ -90,6 +90,6 @@
 			
       
     </plugins>
-    <finalName>my-jee-app</finalName> <!-- .ear -->
+    <finalName>my-jee-app-ear</finalName> <!-- .ear -->
   </build>
 </project>
